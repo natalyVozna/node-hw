@@ -6,8 +6,9 @@ const contactsPath = path.resolve("db/contacts.json");
 
 async function listContacts() {
   try {
-    const list = await fs.readFile("./db/contacts1.json", "utf8");
+    const list = await fs.readFile(contactsPath, "utf8");
     const parsedList = JSON.parse(list);
+    // console.log(parsedList);
     return parsedList;
   } catch (err) {
     console.log(err.message);
@@ -54,6 +55,7 @@ async function addContact(name, email, phone) {
       },
     ];
     await fs.writeFile(contactsPath, JSON.stringify(data), "utf8");
+    return data;
   } catch (err) {
     console.log(err.message);
   }
