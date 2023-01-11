@@ -8,7 +8,6 @@ async function listContacts() {
   try {
     const list = await fs.readFile(contactsPath, "utf8");
     const parsedList = JSON.parse(list);
-    // console.log(parsedList);
     return parsedList;
   } catch (err) {
     console.log(err.message);
